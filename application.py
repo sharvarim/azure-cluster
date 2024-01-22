@@ -1,4 +1,5 @@
 from flask import Flask
+from azure.identity import ManagedIdentityCredential
  
 # Flask constructor takes the name of 
 # current module (__name__) as argument.
@@ -10,6 +11,7 @@ app = Flask(__name__)
 @app.route('/')
 # ‘/’ URL is bound with hello_world() function.
 def hello_world():
+    credentials = ManagedIdentityCredential()
     return 'Hello World'
  
 # main driver function
